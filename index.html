@@ -305,7 +305,7 @@ function addTab(url) {
     newTab.onclick = () => selectTab(newTab);
     tabsContainer.insertBefore(newTab, document.querySelector('.add-tab-button'));
     if (!url) {
-        url = "https://google.com"
+        url = "https://google.com";
     }
     iframe.classList.add('tab-iframe');
     iframe.id = `iframe-${tabCount}`;
