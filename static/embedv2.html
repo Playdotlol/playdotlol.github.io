@@ -285,16 +285,8 @@ function addTab(url) {
     newTab.onclick = () => selectTab(newTab);
     tabsContainer.insertBefore(newTab, document.querySelector('.add-tab-button'));
     if (!url) {
-        url = destination2
+        url = 
     }
-	let destination2 = "";
-
-try {
-  destination2 = new URL(location.hash.slice(1)).toString();
-} catch (err) {
-  alert(`Bad # string or bad URL. Got error:\n${err}`);
-  throw err;
-}
     iframe.classList.add('tab-iframe');
     iframe.id = `iframe-${tabCount}`;
     iframe.src = `/static/embedv2.html#${url}`;
