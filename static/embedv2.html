@@ -277,7 +277,7 @@
     };
 }
 
-function addTab(url) {
+function addTab2(url) {
     tabCount++;
     const tabsContainer = document.getElementById('tabs');
     const iframe = document.createElement('iframe');
@@ -298,6 +298,9 @@ function addTab(url) {
 
     // Observe iframe changes and update the tab name
     observeIframe(iframe, newTab);
+}
+function addTab(url) {
+	search();
 }
 
 
