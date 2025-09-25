@@ -25,6 +25,7 @@
 
     html, body {
       height: 100%;
+      width: 100%;
       background: radial-gradient(circle at 20% -10%, rgba(124,58,237,0.25) 0%, rgba(124,58,237,0) 40%),
                   radial-gradient(circle at 100% 0%, rgba(139,92,246,0.15) 0%, rgba(139,92,246,0) 45%),
                   linear-gradient(135deg, #0a0a0f 0%, #0b0b14 50%, #0a0a11 100%);
@@ -33,19 +34,34 @@
       font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
     }
     p {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 20px;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 800;
+      font-size: 34px;
+      letter-spacing: 0.5px;
+      margin: 0;
+      background: linear-gradient(90deg, #d8b4fe 0%, #a78bfa 40%, #c4b5fd 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 22px rgba(124,58,237,0.6);
+    }
+    .card {
+      width: min(100%, 980px);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 28px 26px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      backdrop-filter: saturate(1.2) blur(6px);
+      position: relative;
+      overflow: hidden;
     }
 </style>
 
 </head>
 
 <body>
-    <div style="position:absolute; left:50%; top: 50%; scale: 6;" class="load"></div>
+    <div style="position:absolute; left:50%; top: 50%; scale: 6;" id="card" class="load"></div>
     <p style="position: absolute; left: 50%; top: 80%; scale: 6;">Loading Search Or Website.</p>
     <script src="uv/uv.bundle.js"></script>
     <script src="uv/uv.config.js"></script>
