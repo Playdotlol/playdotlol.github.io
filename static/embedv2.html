@@ -205,7 +205,9 @@
         <iframe class="tab-iframe active" src="/static/embedv2.html#https://google.com" id="iframe-1"></iframe>
     </div>
     <script>
-		document.onload = search();
+		window.onload = function() {
+			search();
+		};
         	    function goFullscreen() {
 	 const element = document.querySelector('.tab-iframe.active')
 	    
@@ -322,14 +324,6 @@ function addTab(url) {
             };
         }
         function search() {
-	let destination = "";
-	
-	try {
-	  destination = new URL(location.hash.slice(1)).toString();
-	} catch (err) {
-	  alert(`Bad # string or bad URL. Got error:\n${err}`);
-	  throw err;
-	}
 	var fullHash = window.location.hash; 
     const inputElement = document.getElementById('search-input');
     const input = fullHash.substring(1); 
@@ -366,7 +360,7 @@ function addTab(url) {
     const url = detectURL(input, "https://www.google.com/search?q=%s");
 
     // Redirect to appropriate iframe source
-    window.location.redirect = url.startsWith("http") ? `/static/ebv2.html#${url}` : url;
+    window.location.replace(url.startsWith("http") ? `/static/ebv2.html#${url}` : url;)
 	}
         function home() {
 window.location.href = "/static/"
