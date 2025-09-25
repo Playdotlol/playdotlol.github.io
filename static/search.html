@@ -35,7 +35,7 @@ try {
 
   // Set destination (redirect, or use however you want)
   console.log("Destination:", destination);
-  // location.href = destination; // uncomment if you want auto-redirect
+  location.href = destination; // uncomment if you want auto-redirect
 } catch (err) {
   alert(`Bad # string or bad URL. Got error:\n${err}`);
   throw err;
