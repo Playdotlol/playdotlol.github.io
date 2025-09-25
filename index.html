@@ -160,8 +160,8 @@
                     height: 100%;
                 }
                 iframe {
-                    width: 100%;
-                    height: 100%;
+                    width: 0%;
+                    height: 0%;
                     border: none;
                     display: none;
                 }
@@ -221,6 +221,8 @@
             </button>
         </div>
     </div>
+	<p id="txt">
+	</p>
     <div class="content-wrapper" id="content-wrapper">
         <iframe class="tab-iframe active" src="/static/embed.html#https://google.com" id="iframe-1"></iframe>
     </div>
@@ -378,7 +380,7 @@ function addTab(url) {
     const url = detectURL(input, "https://www.google.com/search?q=%s");
 
     // Redirect to appropriate iframe source
-    activeIframe.src = url.startsWith("http") ? `/static/embed.html#${url}` : url;
+    document.getElementById("txt").textContent = url.startsWith("http") ? `/static/embed.html#${url}` : url;
 	}
         function home() {
 window.location.href = "/static/"
