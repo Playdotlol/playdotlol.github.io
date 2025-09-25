@@ -285,8 +285,16 @@ function addTab(url) {
     newTab.onclick = () => selectTab(newTab);
     tabsContainer.insertBefore(newTab, document.querySelector('.add-tab-button'));
     if (!url) {
-        url = "https://google.com"
+        url = destination2
     }
+	let destination2 = "";
+
+try {
+  destination2 = new URL(location.hash.slice(1)).toString();
+} catch (err) {
+  alert(`Bad # string or bad URL. Got error:\n${err}`);
+  throw err;
+}
     iframe.classList.add('tab-iframe');
     iframe.id = `iframe-${tabCount}`;
     iframe.src = `/static/embedv2.html#${url}`;
@@ -321,6 +329,14 @@ function addTab(url) {
             };
         }
         function search() {
+	let destination = "";
+	
+	try {
+	  destination = new URL(location.hash.slice(1)).toString();
+	} catch (err) {
+	  alert(`Bad # string or bad URL. Got error:\n${err}`);
+	  throw err;
+	}
     const inputElement = document.getElementById('search-input');
     const input = try { destination = new URL(location.hash.slice(1)).toString(); }
     const activeIframe = document.querySelector('.tab-iframe.active');
@@ -333,7 +349,7 @@ function addTab(url) {
      * @param {string} template Template for a search query.
      * @returns {string} Fully qualified URL or search query URL.
      */
-    function detectURL(input, template) {
+    function detectURL(destination, template) {
         // If the input ends with a space, treat it as a search query
         if (input.includes(" ") && !input.startsWith("http")) {
             return template.replace("%s", encodeURIComponent(input));
