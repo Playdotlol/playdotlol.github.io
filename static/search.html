@@ -23,7 +23,7 @@
 
     * { box-sizing: border-box; }
 
-    #load {
+    html, body {
       height: 100%;
       background: radial-gradient(circle at 20% -10%, rgba(124,58,237,0.25) 0%, rgba(124,58,237,0) 40%),
                   radial-gradient(circle at 100% 0%, rgba(139,92,246,0.15) 0%, rgba(139,92,246,0) 45%),
@@ -34,7 +34,6 @@
     }
     p {
       display: flex;
-      align-items: baseline;
       justify-content: space-between;
       gap: 20px;
       padding-bottom: 16px;
@@ -45,7 +44,7 @@
 
 </head>
 
-<body style="background-color: #7627dd;">
+<body>
     <div style="position:absolute; left:50%; top: 50%; scale: 6;" class="load"></div>
     <p style="position: absolute; left: 50%; top: 80%; scale: 6;">Loading Search Or Website.</p>
     <script src="uv/uv.bundle.js"></script>
