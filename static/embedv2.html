@@ -294,6 +294,7 @@ function addTab(url) {
     iframe.id = `iframe-${tabCount}`;
     iframe.src = `/static/ebv2.html#${url}`;
     document.getElementById('content-wrapper').appendChild(iframe);
+	search();
 
     // Observe iframe changes and update the tab name
     observeIframe(iframe, newTab);
@@ -360,7 +361,7 @@ function addTab(url) {
     const url = detectURL(input, "https://www.google.com/search?q=%s");
 
     // Redirect to appropriate iframe source
-    window.location.replace(url.startsWith("http") ? `/static/ebv2.html#${url}` : url;)
+    activeIframe.src = url.startsWith("http") ? `/static/ebv2.html#${url}` : url;
 	}
         function home() {
 window.location.href = "/static/"
