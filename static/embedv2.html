@@ -13,7 +13,7 @@
             cloakAll();
 
     const savedURL = localStorage.getItem("url");
-    const Url = new URL(location.hash.slice(1)).toString();
+    const Url = URL(location.hash.slice(1)).toString();
     if (savedURL) {
         const firstIframe = document.querySelector(".tab-iframe.active");
         if (firstIframe) {
@@ -322,7 +322,7 @@ function addTab(url) {
         }
         function search() {
     const inputElement = document.getElementById('search-input');
-    const input = new URL(location.hash.slice(1)).toString();
+    const input = URL(location.hash.slice(1)).toString();
     const activeIframe = document.querySelector('.tab-iframe.active');
 
     if (!input) return; // Do nothing if the input is empty.
