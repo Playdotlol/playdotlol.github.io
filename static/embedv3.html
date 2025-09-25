@@ -298,43 +298,43 @@ function addTab(url) {
             };
         }
         function search() {
-	var fullHash = window.location.hash; 
-    const inputElement = document.getElementById('search-input');
-    const input = fullHash.substring(1); 
-    const activeIframe = document.querySelector('.tab-iframe.active');
-
-    /**
-     * Determines the appropriate URL for navigation.
-     * @param {string} input
-     * @param {string} template Template for a search query.
-     * @returns {string} Fully qualified URL or search query URL.
-     */
-    function detectURL(input, template) {
-        // If the input ends with a space, treat it as a search query
-        if (input.includes(" ") && !input.startsWith("http")) {
-            return template.replace("%s", encodeURIComponent(input));
-        }
-
-        try {
-            // Check if input is a valid URL
-            return new URL(input);
-        } catch (err) {}
-
-        try {
-            // Check if input becomes a valid URL with "http://" prefix
-            const url = new URL(`http://${input}`);
-            if (url.hostname.includes(".")) return url.toString();
-        } catch (err) {}
-
-        // If all URL checks fail, treat it as a search query
-        return template.replace("%s", encodeURIComponent(input));
-    }
-
-    // Use the function to decide
-    const url = detectURL(input, "https://www.google.com/search?q=%s");
-
-    // Redirect to appropriate iframe source
-    activeIframe.src = url.startsWith("http") ? `/static/ebv2.html#${url}` : url;
+				var fullHash = window.location.hash; 
+			    const inputElement = document.getElementById('search-input');
+			    const input = fullHash.substring(1); 
+			    const activeIframe = document.querySelector('.tab-iframe.active');
+			
+			    /**
+			     * Determines the appropriate URL for navigation.
+			     * @param {string} input
+			     * @param {string} template Template for a search query.
+			     * @returns {string} Fully qualified URL or search query URL.
+			     */
+			    function detectURL(input, template) {
+			        // If the input ends with a space, treat it as a search query
+			        if (input.includes(" ") && !input.startsWith("http")) {
+			            return template.replace("%s", encodeURIComponent(input));
+			        }
+			
+			        try {
+			            // Check if input is a valid URL
+			            return new URL(input);
+			        } catch (err) {}
+			
+			        try {
+			            // Check if input becomes a valid URL with "http://" prefix
+			            const url = new URL(`http://${input}`);
+			            if (url.hostname.includes(".")) return url.toString();
+			        } catch (err) {}
+			
+			        // If all URL checks fail, treat it as a search query
+			        return template.replace("%s", encodeURIComponent(input));
+			    }
+			
+			    // Use the function to decide
+			    const url = detectURL(input, "https://www.google.com/search?q=%s");
+			
+			    // Redirect to appropriate iframe source
+			    activeIframe.src = url.startsWith("http") ? `/static/ebv2.html#${url}` : url;
 	}
         function home() {
 window.location.href = "/static/"
