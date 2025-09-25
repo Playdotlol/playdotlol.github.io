@@ -289,7 +289,7 @@ function addTab(url) {
     }
     iframe.classList.add('tab-iframe');
     iframe.id = `iframe-${tabCount}`;
-    iframe.src = `/static/embed.html#${url}`;
+    iframe.src = `/static/embedv2.html#${url}`;
     document.getElementById('content-wrapper').appendChild(iframe);
 
     // Observe iframe changes and update the tab name
