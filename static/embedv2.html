@@ -330,8 +330,9 @@ function addTab(url) {
 	  alert(`Bad # string or bad URL. Got error:\n${err}`);
 	  throw err;
 	}
+	var fullHash = window.location.hash; 
     const inputElement = document.getElementById('search-input');
-    const input = URL(location.hash.slice(1)).toString();
+    const input = fullHash.substring(1); 
     const activeIframe = document.querySelector('.tab-iframe.active');
 
     /**
@@ -348,7 +349,7 @@ function addTab(url) {
 
         try {
             // Check if input is a valid URL
-            return new URL(location.hash.slice(1)).toString();
+            return new URL(input);
         } catch (err) {}
 
         try {
