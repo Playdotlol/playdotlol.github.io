@@ -331,10 +331,8 @@ function addTab(url) {
 	  throw err;
 	}
     const inputElement = document.getElementById('search-input');
-    const input = try { destination = new URL(location.hash.slice(1)).toString(); }
+    const input = URL(location.hash.slice(1)).toString();
     const activeIframe = document.querySelector('.tab-iframe.active');
-
-    if (!input) return; // Do nothing if the input is empty.
 
     /**
      * Determines the appropriate URL for navigation.
@@ -342,7 +340,7 @@ function addTab(url) {
      * @param {string} template Template for a search query.
      * @returns {string} Fully qualified URL or search query URL.
      */
-    function detectURL(destination, template) {
+    function detectURL(input, template) {
         // If the input ends with a space, treat it as a search query
         if (input.includes(" ") && !input.startsWith("http")) {
             return template.replace("%s", encodeURIComponent(input));
@@ -350,7 +348,7 @@ function addTab(url) {
 
         try {
             // Check if input is a valid URL
-            return new URL(input).toString();
+            return new URL(location.hash.slice(1)).toString();
         } catch (err) {}
 
         try {
@@ -367,7 +365,7 @@ function addTab(url) {
     const url = detectURL(input, "https://www.google.com/search?q=%s");
 
     // Redirect to appropriate iframe source
-    activeIframe.src = url.startsWith("http") ? `/static/ebv2.html#${url}` : url;
+    window.location.redirect = url.startsWith("http") ? `/static/ebv2.html#${url}` : url;
 	}
         function home() {
 window.location.href = "/static/"
