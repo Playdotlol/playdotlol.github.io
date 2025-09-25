@@ -4,14 +4,50 @@
     <title>Loading...</title>
     <link rel="stylesheet" href="https://zeelix.web.app/static/stylee.css">
     <link rel="manifest" href="https://zeelix.web.app/static/manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval'  https://2p9rns-8080.csb.app  https://www.gstatic.com/ https://apis.google.com/ https://www.authpro.com https://www.googletagmanager.com https://maxcdn.bootstrapcdn.com https://cdnjs.cloudflare.com https://static.cloudflareinsights.com https://cdn.jsdelivr.net https://widgetbot.io https://docs.widgetbot.io 'unsafe-inline';">
+<style>
+        :root{
+      --bg: #0b0a0f;
+      --bg-soft: #14101d;
+      --card: rgba(20, 14, 28, 0.82);
+      --surface: rgba(23, 18, 32, 0.85);
+      --border: rgba(255,255,255,0.08);
+      --text: #e9e1ff;
+      --muted: #c6b4d8;
+      --primary: #a755f5;
+      --primary-dark: #7e2bd7;
+      --accent: #7c3aed;
+      --glow: 0 0 18px rgba(167, 85, 245, 0.65);
+    }
 
+    * { box-sizing: border-box; }
+
+    #load {
+      height: 100%;
+      background: radial-gradient(circle at 20% -10%, rgba(124,58,237,0.25) 0%, rgba(124,58,237,0) 40%),
+                  radial-gradient(circle at 100% 0%, rgba(139,92,246,0.15) 0%, rgba(139,92,246,0) 45%),
+                  linear-gradient(135deg, #0a0a0f 0%, #0b0b14 50%, #0a0a11 100%);
+      margin: 0;
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    }
+    p {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 20px;
+    }
+</style>
 
 </head>
 
 <body style="background-color: #7627dd;">
     <div style="position:absolute; left:50%; top: 50%; scale: 6;" class="load"></div>
-    <p style="position: absolute; left: 50%; top: 80%; scale: 6;">loading Pr0xy...</p>
+    <p style="position: absolute; left: 50%; top: 80%; scale: 6;">Loading Search Or Website.</p>
     <script src="uv/uv.bundle.js"></script>
     <script src="uv/uv.config.js"></script>
     <script src="register-sw.js"></script>
