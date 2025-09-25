@@ -16,8 +16,6 @@
     <script src="uv/uv.config.js"></script>
     <script src="register-sw.js"></script>
     <script>"use strict";
-let destination = "";
-
 try {
   const hashText = location.hash.slice(1).trim();
 
@@ -25,24 +23,24 @@ try {
     throw new Error("Empty hash string");
   }
 
-  let destination;
+  let destination = "";
 
   try {
-    // Try to treat it as a URL
+    // Try parsing hash as a URL
     destination = new URL(hashText).toString();
   } catch {
-    // If invalid, treat it as a Google search query
-    const query = encodeURIComponent(hashText);
-    destination = `https://www.google.com/search?q=${query}`;
+    // If not a valid URL, fall back to Google search
+    destination = `https://www.google.com/search?q=${encodeURIComponent(hashText)}`;
   }
 
-  // Do something with destination (like redirect)
+  // Set destination (redirect, or use however you want)
   console.log("Destination:", destination);
   // location.href = destination; // uncomment if you want auto-redirect
 } catch (err) {
   alert(`Bad # string or bad URL. Got error:\n${err}`);
   throw err;
 }
+
 
 
 registerSW()
